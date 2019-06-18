@@ -1,0 +1,27 @@
+server:
+  port: 8082
+
+
+mybatis:
+  type-aliases-package: com.marshall.sky.comment.model
+  configuration:
+    map-underscore-to-camel-case: true
+
+spring:
+  application:
+    name: sky-cloud-comment
+  jackson:
+    property-naming-strategy: CAMEL_CASE_TO_LOWER_CASE_WITH_UNDERSCORES
+  datasource:
+    url: jdbc:mysql://localhost:3306/sky?serverTimezone=UTC&useUnicode=true&characterEncoding=utf-8&useSSL=true
+    username: root
+    password: wrglive2016
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8000/eureka/
+ribbon:
+  eureka:
+    enabled: true
