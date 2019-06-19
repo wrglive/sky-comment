@@ -1,6 +1,5 @@
 package com.marshall.sky.comment.controller;
 
-import com.google.protobuf.Api;
 import com.marshall.sky.comment.model.ApiComment;
 import com.marshall.sky.comment.model.Comment;
 import com.marshall.sky.comment.model.TypeEnum;
@@ -46,6 +45,13 @@ public class CommentController {
   public List<ApiComment> list(int page, int count) {
     List<Comment> comments = commentService.list(page, count);
     return commentRender.batchRender(comments);
+  }
+
+  @GetMapping("/list_user_comment.json")
+  public List<ApiComment> listUserComments(@RequestParam(name = "user_id") long userId, int page,
+      int count) {
+    List<Long> ids = commentService.listAuthorComment(userId, page, count);
+    return commentRender.batchRender(commentService.multiGet(ids));
   }
 
 }

@@ -17,6 +17,20 @@ spring:
     username: root
     password: wrglive2016
     driver-class-name: com.mysql.cj.jdbc.Driver
+  redis:
+    database: 1
+    host: 127.0.0.1
+    port: 6379
+    lettuce:
+      pool:
+        #最大线程数
+        max-active: 8
+        #阻塞时间
+        max-wait: -1
+        # 连接池中的最大空闲连接 默认 8
+        max-idle: 8
+        #连接池最小连接数 默认0
+        min-idle: 1
 
 eureka:
   client:
