@@ -5,7 +5,9 @@ import com.marshall.sky.core.exception.ExFactor;
 import com.marshall.sky.core.exception.SkyExceptionMsgModel;
 
 public enum SkyCommentExceptionEnum implements ExFactor {
-  DEFAULT(1, "default error", "默认异常");
+  DEFAULT(1, "default error", "默认异常"),
+  FEIGN_ERROR(2, "feign error", "feign 异常, 服务调用失败。");
+  ;
 
   int errorIndex;
   String errorCode;
